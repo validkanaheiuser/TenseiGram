@@ -314,6 +314,15 @@ public class ApplicationLoader extends Application {
         super.onCreate();
 
         TenseiConfig.load();
+        // Initialize auto-forward for all logged-in accounts
+        try {
+            for (int a = 0; a < UserConfig.MAX_ACCOUNT_COUNT; a++) {
+                if (UserConfig.getInstance(a).isClientActivated()) {
+                    TenseiAutoForward.getInstance(a);
+                }
+            }
+        } catch (Throwable ignore) {
+        }
         try {
             TenseiStats.onAppStart();
         } catch (Throwable ignore) {

@@ -11313,4 +11313,27 @@
     <string name="TenseiQrSaved">QR Code saved to Pictures</string>
     <string name="TenseiQrSaveError">Failed to save QR code</string>
     <string name="TenseiNoUpiApp">No UPI app found on this device</string>
+    <string name="TenseiAutoForward">Auto Forward</string>
+    <string name="TenseiAutoForwardInfo">Automatically forward messages from selected chats to another chat</string>
+    <string name="TenseiAutoForwardEnabled">Auto Forward Enabled</string>
+    <string name="TenseiAutoForwardEnabledInfo">Master switch for auto-forwarding</string>
+    <string name="TenseiAutoForwardSources">Source Chats</string>
+    <string name="TenseiAutoForwardSourcesInfo">Select chats to monitor for new messages</string>
+    <string name="TenseiAutoForwardDest">Destination Chat</string>
+    <string name="TenseiAutoForwardDestInfo">Select chat to forward messages to</string>
+    <string name="TenseiAutoForwardMedia">Forward Media</string>
+    <string name="TenseiAutoForwardMediaInfo">Auto-forward photos, videos, files and documents</string>
+    <string name="TenseiAutoForwardText">Forward Text</string>
+    <string name="TenseiAutoForwardTextInfo">Auto-forward text-only messages</string>
+    <string name="TenseiAutoForwardSilent">Silent Forward</string>
+    <string name="TenseiAutoForwardSilentInfo">Send forwarded messages without notification sound</string>
+    <string name="TenseiAutoForwardRemoveHeader">Remove Forward Header</string>
+    <string name="TenseiAutoForwardRemoveHeaderInfo">Send as copy without showing the original source</string>
+    <string name="TenseiAutoForwardSelectSource">Select Source Chat</string>
+    <string name="TenseiAutoForwardSelectDest">Select Destination Chat</string>
+    <string name="TenseiAutoForwardNoSources">No source chats selected</string>
+    <string name="TenseiAutoForwardNoDest">No destination selected</string>
+    <string name="TenseiAutoForwardSourceCount">%d chat(s) selected</string>
+    <string name="TenseiAutoForwardAddSource">Add Source Chat</string>
+    <string name="TenseiAutoForwardRemoveAll">Remove All Sources</string>
 </resources>

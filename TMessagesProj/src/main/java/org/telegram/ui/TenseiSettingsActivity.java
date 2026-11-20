@@ -178,6 +178,11 @@ public class TenseiSettingsActivity extends BaseFragment implements Notification
                     TenseiConfig.save();
                 });
 
+        // Auto Forward nav row
+        View autoForwardRow = makeAutoForwardRow(context, colorTitle, colorSub, colorChevron);
+        modsCard.addView(autoForwardRow, LayoutHelper.createLinear(
+                LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
+
         vibrationSwitch = addToggleRow(context, modsCard,
                 LocaleController.getString("TenseiVibration", R.string.TenseiVibration),
                 LocaleController.getString("TenseiVibrationInfo", R.string.TenseiVibrationInfo),
@@ -588,6 +593,47 @@ public class TenseiSettingsActivity extends BaseFragment implements Notification
         }
         refreshVibrationBar();
         updateStickerLimitValue();
+    }
+
+    private View makeAutoForwardRow(Context context, int colorTitle, int colorSub, int colorChevron) {
+        LinearLayout row = new LinearLayout(context);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setGravity(Gravity.CENTER_VERTICAL);
+        row.setPadding(AndroidUtilities.dp(16), AndroidUtilities.dp(14),
+                AndroidUtilities.dp(16), AndroidUtilities.dp(14));
+        row.setBackground(Theme.getSelectorDrawable(false));
+        row.setClickable(true);
+        row.setFocusable(true);
+        row.setOnClickListener(v -> presentFragment(new TenseiAutoForwardActivity()));
+
+        LinearLayout texts = new LinearLayout(context);
+        texts.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams textsLp = LayoutHelper.createLinear(0,
+                LayoutHelper.WRAP_CONTENT, 1f);
+        textsLp.rightMargin = AndroidUtilities.dp(12);
+        row.addView(texts, textsLp);
+
+        TextView tvTitle = new TextView(context);
+        tvTitle.setText(LocaleController.getString("TenseiAutoForward", R.string.TenseiAutoForward));
+        tvTitle.setTextSize(16.5f);
+        tvTitle.setTypeface(AndroidUtilities.bold());
+        tvTitle.setTextColor(colorTitle);
+        texts.addView(tvTitle);
+
+        TextView tvSub = new TextView(context);
+        tvSub.setText(LocaleController.getString("TenseiAutoForwardInfo", R.string.TenseiAutoForwardInfo));
+        tvSub.setTextSize(13.2f);
+        tvSub.setTextColor(colorSub);
+        texts.addView(tvSub, LayoutHelper.createLinear(
+                LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, 0, 2, 0, 0));
+
+        ImageView chevron = new ImageView(context);
+        chevron.setImageResource(R.drawable.ic_tensei_chevron);
+        chevron.setColorFilter(colorChevron);
+        chevron.setScaleType(ImageView.ScaleType.CENTER);
+        row.addView(chevron, LayoutHelper.createLinear(14, 22));
+
+        return row;
     }
 
     private void confirmResetDefaults() {

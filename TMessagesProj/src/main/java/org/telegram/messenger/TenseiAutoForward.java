@@ -185,10 +185,9 @@ public class TenseiAutoForward implements NotificationCenter.NotificationCenterD
             ArrayList<MessageObject> messages = (ArrayList<MessageObject>) args[1];
             if (messages == null || messages.isEmpty()) return;
 
-            // Don't forward our own outgoing messages (avoid loops)
+            // Don't forward to self (avoid loops)
             for (MessageObject mo : messages) {
                 if (mo == null || mo.messageOwner == null) continue;
-                if (mo.isOut()) continue;
 
                 // Filter by type
                 boolean hasMedia = hasMediaContent(mo);
